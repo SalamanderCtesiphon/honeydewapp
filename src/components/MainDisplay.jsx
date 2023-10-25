@@ -1,7 +1,11 @@
 import React from 'react'
 
 function MainDisplay() {
-  return <div>MainDisplay</div>
+  return (
+    <>
+      <div className="display">MainDisplay</div>
+    </>
+  )
 }
 
 export default MainDisplay
