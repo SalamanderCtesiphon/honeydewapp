@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <header>
-        <h1>To Do App</h1>
+        <h1>Project Management Application</h1>
       </header>
     </>
   )
