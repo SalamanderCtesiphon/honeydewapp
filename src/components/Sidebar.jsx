@@ -1,7 +1,14 @@
 import React from 'react'
 import AddProject from './AddProject'
 
-function Sidebar({ projects }) {
+function Sidebar({
+  projects,
+  handleFormSubmit,
+  title,
+  description,
+  setTitle,
+  setDescription,
+}) {
   return (
     <>
       <section className="sidebar">
@@ -9,7 +16,13 @@ function Sidebar({ projects }) {
           <h2>Projects</h2>
         </header>
         <main className="sidebar-main">
-          <AddProject />
+          <AddProject
+            handleFormSubmit={handleFormSubmit}
+            title={title}
+            description={description}
+            setTitle={setTitle}
+            setDescription={setDescription}
+          />
           {projects.map((item) => {
             return (
               <div

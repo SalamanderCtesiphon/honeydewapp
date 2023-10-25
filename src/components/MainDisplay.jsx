@@ -7,8 +7,8 @@ function MainDisplay({ projects }) {
         {projects.map((item) => {
           if (item.displayToMain === true) {
             return (
-              <div className="task-header">
-                <h1 key={item.id}>{item.title}</h1>
+              <div className="task-header" key={item.id}>
+                <h1>{item.title}</h1>
                 <div className="btn-box">
                   <button>Delete Project</button>
                   <button onClick={() => alert('button clicked')}>

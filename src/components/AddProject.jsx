@@ -17,7 +17,13 @@ const style = {
   p: 4,
 }
 
-export default function AddProject() {
+export default function AddProject({
+  handleFormSubmit,
+  title,
+  description,
+  setTitle,
+  setDescription,
+}) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -34,14 +40,28 @@ export default function AddProject() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <form className="form">
+          <form className="form" onSubmit={(e) => handleFormSubmit(e)}>
             <p className="title">Start a New Project?</p>
             <label>
-              <input className="input" type="text" placeholder="" required />
+              <input
+                className="input"
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
               <span>Project Title</span>
             </label>
             <label>
-              <input className="input" type="text" placeholder="" required />
+              <input
+                className="input"
+                type="text"
+                id="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
               <span>Brief description</span>
             </label>
             <br />

@@ -1,9 +1,10 @@
 import './App.css'
 import Header from './components/Header'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import MainDisplay from './components/MainDisplay'
+import uuid from 'react-uuid'
 
 function App() {
   const [projects, setProjects] = useState([
@@ -60,12 +61,36 @@ function App() {
       ],
     },
   ])
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+
+  function handleFormSubmit(e) {
+    e.preventDefault()
+    const newProject = {
+      id: uuid(),
+      title: title,
+      description: description,
+      taskArray: [],
+    }
+    setProjects([...projects, newProject])
+  }
+
+  useEffect(() => {
+    console.log(projects)
+  }, [projects])
 
   return (
     <>
       <Header />
       <div className="main">
-        <Sidebar projects={projects} />
+        <Sidebar
+          projects={projects}
+          handleFormSubmit={handleFormSubmit}
+          title={title}
+          description={description}
+          setTitle={setTitle}
+          setDescription={setDescription}
+        />
         <MainDisplay projects={projects} />
       </div>
       <Footer />
