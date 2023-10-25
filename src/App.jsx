@@ -1,6 +1,9 @@
 import './App.css'
 import Header from './components/Header'
 import { useState } from 'react'
+import Sidebar from './components/Sidebar'
+import Footer from './components/Footer'
+import MainDisplay from './components/MainDisplay'
 
 function App() {
   const [projects, setProjects] = useState([])
@@ -14,7 +17,11 @@ function App() {
   return (
     <>
       <Header />
-      <p>To Do App give me a job!</p>
+      <div className="main">
+        <Sidebar />
+        <MainDisplay />
+      </div>
+      <Footer />
     </>
   )
 }
