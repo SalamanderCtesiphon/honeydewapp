@@ -1,5 +1,5 @@
 import React from 'react'
-import icon from '../assets/add_white_24dp.svg'
+import AddProject from './AddProject'
 
 function Sidebar({ projects }) {
   return (
@@ -9,9 +9,7 @@ function Sidebar({ projects }) {
           <h2>Projects</h2>
         </header>
         <main className="sidebar-main">
-          <div className="add-project" onClick={() => alert('button clicked')}>
-            <img src={icon} alt="add a project" />
-          </div>
+          <AddProject />
           {projects.map((item) => {
             return (
               <div
