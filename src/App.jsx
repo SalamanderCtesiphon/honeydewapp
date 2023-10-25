@@ -11,6 +11,7 @@ function App() {
       id: '1',
       title: 'Project 1',
       description: 'A placeholder project',
+      displayToMain: true,
       taskArray: [
         {
           id: '101',
@@ -36,6 +37,7 @@ function App() {
       id: '2',
       title: 'Project 2',
       description: 'Another placeholder project',
+      displayToMain: false,
       taskArray: [
         {
           id: '201',
@@ -64,7 +66,7 @@ function App() {
       <Header />
       <div className="main">
         <Sidebar projects={projects} />
-        <MainDisplay />
+        <MainDisplay projects={projects} />
       </div>
       <Footer />
     </>
