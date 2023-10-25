@@ -8,6 +8,7 @@ function Sidebar({
   description,
   setTitle,
   setDescription,
+  handleDisplay,
 }) {
   return (
     <>
@@ -28,7 +29,7 @@ function Sidebar({
               <div
                 key={item.id}
                 className="list-item"
-                onClick={() => alert('button clicked')}
+                onClick={() => handleDisplay(item.id)}
               >
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>

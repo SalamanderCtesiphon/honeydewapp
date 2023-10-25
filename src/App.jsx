@@ -70,11 +70,28 @@ function App() {
       id: uuid(),
       title: title,
       description: description,
+      displayToMain: false,
       taskArray: [],
     }
     setProjects([...projects, newProject])
     setTitle('')
     setDescription('')
+  }
+
+  function handleDisplay(id) {
+    projects.map((item) => {
+      if (item.displayToMain === true) {
+        return (item.displayToMain = false)
+      }
+    })
+    setProjects([...projects])
+    projects.map((item) => {
+      if (id === item.id) {
+        return (item.displayToMain = true)
+      }
+    })
+    setProjects([...projects])
+    return projects
   }
 
   useEffect(() => {
@@ -92,6 +109,7 @@ function App() {
           description={description}
           setTitle={setTitle}
           setDescription={setDescription}
+          handleDisplay={handleDisplay}
         />
         <MainDisplay projects={projects} />
       </div>
