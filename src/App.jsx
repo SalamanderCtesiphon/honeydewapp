@@ -114,6 +114,8 @@ function App() {
       }
     })
     setProjects([...projects])
+    setTaskTitle('')
+    setDueDate('')
   }
 
   useEffect(() => {

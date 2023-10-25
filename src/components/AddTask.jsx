@@ -75,9 +75,9 @@ export default function AddProject({
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
               >
-                <option value={'High Priority'}>High</option>
-                <option value={'Medium Priority'}>Medium</option>
-                <option value={'Low Priority'}>Low</option>
+                <option value={'High'}>High</option>
+                <option value={'Medium'}>Medium</option>
+                <option value={'Low'}>Low</option>
               </select>
               <span>Urgency</span>
             </label>
