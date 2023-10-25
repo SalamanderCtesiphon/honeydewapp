@@ -14,7 +14,11 @@ function Sidebar({ projects }) {
           </div>
           {projects.map((item) => {
             return (
-              <div key={item.id} className="list-item">
+              <div
+                key={item.id}
+                className="list-item"
+                onClick={() => alert('button clicked')}
+              >
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </div>
