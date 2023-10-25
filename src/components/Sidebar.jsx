@@ -15,7 +15,8 @@ function Sidebar({ projects }) {
           {projects.map((item) => {
             return (
               <div key={item.id} className="list-item">
-                {item.title}
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
             )
           })}

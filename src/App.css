@@ -18,7 +18,7 @@ header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 80vh;
+  height: 75vh;
   width: 100%;
 }
 
@@ -28,6 +28,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 }
 
 #project-head {
@@ -75,6 +76,9 @@ img {
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list-item:hover {
