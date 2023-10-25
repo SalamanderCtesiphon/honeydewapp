@@ -8,6 +8,7 @@ function App() {
     dueDate: '',
     priority: '',
   })
+
   return (
     <>
       <Header />
