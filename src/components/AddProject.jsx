@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 
 import icon from '../assets/add_white_24dp.svg'
@@ -36,32 +35,16 @@ export default function AddProject() {
       >
         <Box sx={style}>
           <form className="form">
-            <p className="title">Book a Reservation</p>
-            <p className="message">
-              Please fill out the form below to book your reservation.
-            </p>
-            <div className="flex">
-              <label>
-                <input className="input" type="text" placeholder="" required />
-                <span>Firstname</span>
-              </label>
-              <label>
-                <input className="input" type="text" placeholder="" required />
-                <span>Lastname</span>
-              </label>
-            </div>
+            <p className="title">Start a New Project?</p>
             <label>
-              <input className="input" type="email" placeholder="" required />
-              <span>Email</span>
+              <input className="input" type="text" placeholder="" required />
+              <span>Project Title</span>
             </label>
             <label>
               <input className="input" type="text" placeholder="" required />
-              <span>Date and Time</span>
+              <span>Brief description</span>
             </label>
-            <label>
-              <input className="input" type="text" placeholder="" required />
-              <span>Confirm your reservation time and date</span>
-            </label>
+            <br />
             <button className="submit">Submit</button>
           </form>
         </Box>
