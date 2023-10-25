@@ -62,3 +62,22 @@ img {
   display: flex;
   justify-content: center;
 }
+
+.sidebar-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-item {
+  margin: 14px;
+  border: 1px solid gray;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: rgba(0, 0, 0, 0.218);
+  border: 1px solid rgb(133, 0, 143);
+}
