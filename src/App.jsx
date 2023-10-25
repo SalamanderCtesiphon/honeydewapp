@@ -2,10 +2,16 @@ import './App.css'
 import Header from './components/Header'
 
 function App() {
+  const [item, setItem] = useState({
+    title: '',
+    decription: '',
+    dueDate: '',
+    priority: '',
+  })
   return (
     <>
       <Header />
-      <h1>To Do App give me a job!</h1>
+      <p>To Do App give me a job!</p>
     </>
   )
 }
