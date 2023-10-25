@@ -1,6 +1,7 @@
 import React from 'react'
+import ConfirmDelete from './ConfirmDelete'
 
-function MainDisplay({ projects }) {
+function MainDisplay({ projects, handleProjectDelete }) {
   return (
     <>
       <section className="display">
@@ -10,7 +11,10 @@ function MainDisplay({ projects }) {
               <div className="task-header" key={item.id}>
                 <h1>{item.title}</h1>
                 <div className="btn-box">
-                  <button>Delete Project</button>
+                  <ConfirmDelete
+                    handleProjectDelete={handleProjectDelete}
+                    item={item}
+                  />
                   <button onClick={() => alert('button clicked')}>
                     add task
                   </button>

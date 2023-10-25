@@ -94,6 +94,10 @@ function App() {
     return projects
   }
 
+  function handleProjectDelete(id) {
+    setProjects(projects.filter((item) => item.id !== id))
+  }
+
   useEffect(() => {
     console.log(projects)
   }, [projects])
@@ -111,7 +115,10 @@ function App() {
           setDescription={setDescription}
           handleDisplay={handleDisplay}
         />
-        <MainDisplay projects={projects} />
+        <MainDisplay
+          projects={projects}
+          handleProjectDelete={handleProjectDelete}
+        />
       </div>
       <Footer />
     </>
