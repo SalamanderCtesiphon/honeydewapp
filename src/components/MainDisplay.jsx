@@ -51,7 +51,7 @@ function MainDisplay({
                   </h2>
                   <div className="task-body">
                     <p>Due: {task.dueDate}</p>
-                    <p>Priority: {task.priority}</p>
+                    <p>{task.priority}</p>
                   </div>
                 </div>
               )
