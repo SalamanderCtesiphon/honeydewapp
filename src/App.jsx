@@ -73,6 +73,8 @@ function App() {
       taskArray: [],
     }
     setProjects([...projects, newProject])
+    setTitle('')
+    setDescription('')
   }
 
   useEffect(() => {
