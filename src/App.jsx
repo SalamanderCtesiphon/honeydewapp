@@ -63,6 +63,9 @@ function App() {
   ])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [dueDate, setDueDate] = useState('')
+  const [taskTitle, setTaskTitle] = useState('')
+  const [priority, setPriority] = useState('')
 
   function handleFormSubmit(e) {
     e.preventDefault()
@@ -98,6 +101,10 @@ function App() {
     setProjects(projects.filter((item) => item.id !== id))
   }
 
+  function handleTaskFormSubmit() {
+    console.log('hi')
+  }
+
   useEffect(() => {
     console.log(projects)
   }, [projects])
@@ -118,6 +125,13 @@ function App() {
         <MainDisplay
           projects={projects}
           handleProjectDelete={handleProjectDelete}
+          handleTaskFormSubmit={handleTaskFormSubmit}
+          dueDate={dueDate}
+          setDueDate={setDueDate}
+          priority={priority}
+          setPriority={setPriority}
+          taskTitle={taskTitle}
+          setTaskTitle={setTaskTitle}
         />
       </div>
       <Footer />

@@ -1,7 +1,18 @@
 import React from 'react'
 import ConfirmDelete from './ConfirmDelete'
+import AddTask from './AddTask'
 
-function MainDisplay({ projects, handleProjectDelete }) {
+function MainDisplay({
+  projects,
+  handleProjectDelete,
+  handleTaskFormSubmit,
+  taskTitle,
+  setTaskTitle,
+  dueDate,
+  setDueDate,
+  priority,
+  setPriority,
+}) {
   return (
     <>
       <section className="display">
@@ -15,9 +26,15 @@ function MainDisplay({ projects, handleProjectDelete }) {
                     handleProjectDelete={handleProjectDelete}
                     item={item}
                   />
-                  <button onClick={() => alert('button clicked')}>
-                    add task
-                  </button>
+                  <AddTask
+                    handleTaskFormSubmit={handleTaskFormSubmit}
+                    dueDate={dueDate}
+                    setDueDate={setDueDate}
+                    priority={priority}
+                    setPriority={setPriority}
+                    taskTitle={taskTitle}
+                    setTaskTitle={setTaskTitle}
+                  />
                 </div>
               </div>
             )
