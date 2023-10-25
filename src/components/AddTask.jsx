@@ -23,6 +23,7 @@ export default function AddProject({
   setDueDate,
   priority,
   setPriority,
+  item,
 }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
@@ -41,7 +42,7 @@ export default function AddProject({
           <form
             className="form"
             onSubmit={(e) => {
-              handleTaskFormSubmit(e), handleClose()
+              handleTaskFormSubmit(item.id), handleClose()
             }}
           >
             <p className="title">Add New Task</p>

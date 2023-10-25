@@ -16,19 +16,19 @@ function App() {
       taskArray: [
         {
           id: '101',
-          title: 'Take out the trash',
+          taskTitle: 'Take out the trash',
           dueDate: 'Today',
           priority: 'Low',
         },
         {
           id: '102',
-          title: 'Wash clothes',
+          taskTitle: 'Wash clothes',
           dueDate: 'Today',
           priority: 'Low',
         },
         {
           id: '103',
-          title: 'Do the dishes',
+          taskTitle: 'Do the dishes',
           dueDate: 'Today',
           priority: 'Low',
         },
@@ -42,19 +42,19 @@ function App() {
       taskArray: [
         {
           id: '201',
-          title: 'Take out the trash',
+          taskTitle: 'Take out the trash',
           dueDate: 'Today',
           priority: 'Low',
         },
         {
           id: '202',
-          title: 'Wash clothes',
+          taskTitle: 'Wash clothes',
           dueDate: 'Today',
           priority: 'Low',
         },
         {
           id: '203',
-          title: 'Do the dishes',
+          taskTitle: 'Do the dishes',
           dueDate: 'Today',
           priority: 'Low',
         },
@@ -101,8 +101,19 @@ function App() {
     setProjects(projects.filter((item) => item.id !== id))
   }
 
-  function handleTaskFormSubmit() {
-    console.log('hi')
+  function handleTaskFormSubmit(id) {
+    const newTask = {
+      id: uuid(),
+      taskTitle: taskTitle,
+      dueDate: dueDate,
+      priority: priority,
+    }
+    projects.map((item) => {
+      if (id === item.id) {
+        return item.taskArray.push(newTask)
+      }
+    })
+    setProjects([...projects])
   }
 
   useEffect(() => {
