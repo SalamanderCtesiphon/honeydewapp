@@ -40,6 +40,9 @@ export default function ConfirmDelete({ handleProjectDelete, item }) {
           >
             ConfirmDelete
           </button>
+          <button className="submit" onClick={handleClose}>
+            Cancel
+          </button>
         </Box>
       </Modal>
     </div>

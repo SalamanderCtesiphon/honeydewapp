@@ -40,7 +40,12 @@ export default function AddProject({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <form className="form" onSubmit={(e) => handleFormSubmit(e)}>
+          <form
+            className="form"
+            onSubmit={(e) => {
+              handleFormSubmit(e), handleClose()
+            }}
+          >
             <p className="title">Start a New Project?</p>
             <label>
               <input
@@ -66,6 +71,9 @@ export default function AddProject({
             </label>
             <br />
             <button className="submit">Submit</button>
+            <button className="submit" onClick={handleClose}>
+              Cancel
+            </button>
           </form>
         </Box>
       </Modal>

@@ -12,6 +12,7 @@
 button {
   cursor: pointer;
   padding: 4px;
+  margin: 0 4px;
 }
 
 header {
@@ -206,7 +207,7 @@ img {
   border-radius: 10px;
 }
 
-.form label .input + span {
+.form label .input+span {
   color: rgba(255, 255, 255, 0.5);
   position: absolute;
   left: 10px;
@@ -216,13 +217,13 @@ img {
   transition: 0.3s ease;
 }
 
-.form label .input:placeholder-shown + span {
+.form label .input:placeholder-shown+span {
   top: 12.5px;
   font-size: 0.9em;
 }
 
-.form label .input:focus + span,
-.form label .input:valid + span {
+.form label .input:focus+span,
+.form label .input:valid+span {
   color: #646cff;
   top: 0px;
   font-size: 0.7em;
