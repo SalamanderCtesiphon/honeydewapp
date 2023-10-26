@@ -7,7 +7,8 @@ import MainDisplay from './components/MainDisplay'
 import uuid from 'react-uuid'
 
 function App() {
-  const [projects, setProjects] = useState([
+  const [projects, setProjects] = useState(
+    /* [
     {
       id: '1',
       title: 'Project 1',
@@ -66,7 +67,8 @@ function App() {
         },
       ],
     },
-  ])
+  ] */ JSON.parse(localStorage.getItem('projects'))
+  )
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -133,6 +135,10 @@ function App() {
     })
     setProjects([...projects])
   }
+
+  useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(projects))
+  }, [projects])
 
   return (
     <>

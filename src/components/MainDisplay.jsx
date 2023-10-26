@@ -51,7 +51,6 @@ function MainDisplay({
             return item.taskArray.map((task) => {
               const date = new Date(task.dueDate)
               const formatDate = date.toString().slice(0, 10)
-              console.log(date)
               return (
                 <div className="task-card" key={task.id}>
                   <h2 className="card-title">
