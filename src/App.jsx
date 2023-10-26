@@ -140,21 +140,29 @@ function App() {
     setProjects([...projects])
   }
 
-  function handleShowTaskDetails(id) {
-    console.log(id)
+  function handleShowTaskDetails(Iid, Tid) {
     projects.map((item) => {
-      if (item.id === id) {
-        item.isDisplay = true
+      if (item.id === Iid) {
+        item.taskArray.map((task) => {
+          if (task.id === Tid) {
+            console.log('open')
+            task.isDisplay = true
+          }
+        })
       }
     })
     setProjects([...projects])
   }
 
-  function handleHideTaskDetails(id) {
-    console.log(id)
+  function handleHideTaskDetails(Iid, Tid) {
     projects.map((item) => {
-      if (item.id === id) {
-        item.isDisplay = false
+      if (item.id === Iid) {
+        item.taskArray.map((task) => {
+          if (task.id === Tid) {
+            console.log('close')
+            task.isDisplay = false
+          }
+        })
       }
     })
     setProjects([...projects])

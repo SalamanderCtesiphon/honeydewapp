@@ -10,10 +10,10 @@ function TaskCard({
 }) {
   return (
     <>
-      {item.isDisplay ? (
+      {task.isDisplay === true ? (
         <div
           className="task-card"
-          onClick={() => handleHideTaskDetails(item.id)}
+          onClick={() => handleHideTaskDetails(item.id, task.id)}
         >
           <h2 className="card-title">
             <div className="card-title-sub">{task.taskTitle} </div>
@@ -30,7 +30,7 @@ function TaskCard({
       ) : (
         <div
           className="task-card"
-          onClick={() => handleShowTaskDetails(item.id)}
+          onClick={() => handleShowTaskDetails(item.id, task.id)}
         >
           <h2 className="card-title">
             <div className="card-title-sub">{task.taskTitle} </div>
