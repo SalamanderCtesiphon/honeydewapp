@@ -1,4 +1,5 @@
 import React from 'react'
+import EditTask from './EditTask'
 
 function TaskCard({
   task,
@@ -24,7 +25,7 @@ function TaskCard({
           </div>
           <p className="task-body">{task.taskNotes}</p>
           <div className="btn-box">
-            <button>Edit Task</button>
+            <EditTask />
             <button onClick={() => handleHideTaskDetails(item.id, task.id)}>
               {' '}
               Hide Details
