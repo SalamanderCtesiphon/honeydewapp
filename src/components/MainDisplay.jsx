@@ -2,6 +2,7 @@ import React from 'react'
 import ConfirmDelete from './ConfirmDelete'
 import AddTask from './AddTask'
 import { format } from 'date-fns'
+import TaskCard from './TaskCard'
 
 format(new Date(2014, 1, 11), 'yyyy-MM-dd')
 //=> '2014-02-11'
@@ -52,18 +53,13 @@ function MainDisplay({
               const date = new Date(task.dueDate)
               const formatDate = date.toString().slice(0, 10)
               return (
-                <div className="task-card" key={task.id}>
-                  <h2 className="card-title">
-                    <div className="card-title-sub">{task.taskTitle} </div>
-                    <button onClick={() => handleTaskDelete(item.id, task.id)}>
-                      Delete
-                    </button>
-                  </h2>
-                  <div className="task-body">
-                    <p>Due: {formatDate}</p>
-                    <p>{task.priority}</p>
-                  </div>
-                </div>
+                <TaskCard
+                  key={task.id}
+                  task={task}
+                  handleTaskDelete={handleTaskDelete}
+                  formatDate={formatDate}
+                  item={item}
+                />
               )
             })
           }
