@@ -69,6 +69,7 @@ export default function AddProject({
               <span>Due Date</span>
             </label>
             <label>
+              <span>Urgency:</span>{' '}
               <select
                 name="priority"
                 id="priority"
@@ -79,7 +80,6 @@ export default function AddProject({
                 <option value={'Medium Priority'}>Medium</option>
                 <option value={'Low Priority'}>Low</option>
               </select>
-              <span>Urgency</span>
             </label>
             <br />
             <button className="submit">Submit</button>
