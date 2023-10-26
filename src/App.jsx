@@ -74,6 +74,8 @@ function App() {
   const [dueDate, setDueDate] = useState('')
   const [taskTitle, setTaskTitle] = useState('')
   const [priority, setPriority] = useState('')
+  const [taskNotes, setTaskNotes] = useState('')
+  const [isDisplay, setIsDisply] = useState(false)
 
   function handleFormSubmit(e) {
     e.preventDefault()
@@ -113,8 +115,10 @@ function App() {
     const newTask = {
       id: uuid(),
       taskTitle: taskTitle,
+      taskNotes: taskNotes,
       dueDate: dueDate,
       priority: priority,
+      isDisplay: false,
     }
     projects.map((item) => {
       if (id === item.id) {
@@ -134,6 +138,16 @@ function App() {
       }
     })
     setProjects([...projects])
+  }
+
+  function handleShowTaskDetails(id) {
+    console.log(id)
+    /* projects.map((item) => {
+      if (item.id === id) {
+        item.isDisplay = true
+      }
+    })
+    setProjects([...projects]) */
   }
 
   useEffect(() => {
@@ -164,6 +178,10 @@ function App() {
           taskTitle={taskTitle}
           setTaskTitle={setTaskTitle}
           handleTaskDelete={handleTaskDelete}
+          taskNotes={taskNotes}
+          setTaskNotes={setTaskNotes}
+          isDisplay={isDisplay}
+          handleShowTaskDetails={handleShowTaskDetails}
         />
       </div>
       <Footer />

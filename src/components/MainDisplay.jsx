@@ -18,6 +18,10 @@ function MainDisplay({
   priority,
   setPriority,
   handleTaskDelete,
+  taskNotes,
+  setTaskNotes,
+  isDisplay,
+  handleShowTaskDetails,
 }) {
   return (
     <>
@@ -41,6 +45,8 @@ function MainDisplay({
                     taskTitle={taskTitle}
                     setTaskTitle={setTaskTitle}
                     item={item}
+                    taskNotes={taskNotes}
+                    setTaskNotes={setTaskNotes}
                   />
                 </div>
               </div>
@@ -59,6 +65,8 @@ function MainDisplay({
                   handleTaskDelete={handleTaskDelete}
                   formatDate={formatDate}
                   item={item}
+                  isDisplay={isDisplay}
+                  handleShowTaskDetails={handleShowTaskDetails}
                 />
               )
             })

@@ -24,6 +24,8 @@ export default function AddProject({
   priority,
   setPriority,
   item,
+  taskNotes,
+  setTaskNotes,
 }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
@@ -56,6 +58,17 @@ export default function AddProject({
                 required
               />
               <span>Task Title</span>
+            </label>
+            <label>
+              <textarea
+                className="input"
+                type="text"
+                id="taskTitle"
+                value={taskNotes}
+                onChange={(e) => setTaskNotes(e.target.value)}
+                required
+              />
+              <span>Notes</span>
             </label>
             <label>
               <input
