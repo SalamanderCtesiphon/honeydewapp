@@ -179,6 +179,12 @@ function App() {
       if (item.id === Iid) {
         item.taskArray.map((task) => {
           if (task.id === Tid) {
+            task.id = Tid
+            task.taskTitle = editTaskTitle
+            task.taskNotes = editTaskNotes
+            task.priority = editPriority
+            task.isDisplay = false
+            task.editing = false
           }
         })
       }

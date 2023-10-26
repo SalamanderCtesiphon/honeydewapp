@@ -25,6 +25,8 @@ export default function AddProject({
   setEditTaskNotes,
   editTaskTitle,
   editTaskNotes,
+  editDueDate,
+  editPriority,
 }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
@@ -78,7 +80,7 @@ export default function AddProject({
                 className="input"
                 type="date"
                 id="description"
-                value={task.dueDate}
+                value={editDueDate}
                 onChange={(e) => setEditDueDate(e.target.value)}
                 required
               />
@@ -87,9 +89,9 @@ export default function AddProject({
             <label>
               <span>Urgency:</span>{' '}
               <select
-                name="priority"
-                id="priority"
-                value={task.priority}
+                name="editPriority"
+                id="editPriority"
+                value={editPriority}
                 onChange={(e) => setEditPriority(e.target.value)}
               >
                 <option value={'High Priority'}>High</option>
