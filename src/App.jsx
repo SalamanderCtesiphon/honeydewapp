@@ -183,6 +183,7 @@ function App() {
             task.taskTitle = editTaskTitle
             task.taskNotes = editTaskNotes
             task.priority = editPriority
+            task.dueDate = editDueDate
             task.isDisplay = false
             task.editing = false
           }
@@ -190,6 +191,8 @@ function App() {
       }
     })
     setProjects([...projects])
+    setEditTaskTitle('')
+    setEditTaskNotes('')
   }
 
   useEffect(() => {

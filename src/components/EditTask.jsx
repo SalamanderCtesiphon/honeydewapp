@@ -59,6 +59,7 @@ export default function AddProject({
                 type="text"
                 id="editTaskTitle"
                 value={editTaskTitle}
+                placeholder={task.taskTitle}
                 onChange={(e) => setEditTaskTitle(e.target.value)}
                 required
               />
@@ -68,12 +69,13 @@ export default function AddProject({
               <textarea
                 className="input"
                 type="text"
-                id="taskTitle"
+                id="editTaskNotes"
                 value={editTaskNotes}
+                placeholder={task.taskNotes}
                 onChange={(e) => setEditTaskNotes(e.target.value)}
                 required
               />
-              <span>{task.taskNotes}</span>
+              <span>edit notes</span>
             </label>
             <label>
               <input
