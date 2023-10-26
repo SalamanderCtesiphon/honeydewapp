@@ -1,6 +1,10 @@
 import React from 'react'
 import ConfirmDelete from './ConfirmDelete'
 import AddTask from './AddTask'
+import { compareAsc, format } from 'date-fns'
+
+format(new Date(2014, 1, 11), 'yyyy-MM-dd')
+//=> '2014-02-11'
 
 function MainDisplay({
   projects,
@@ -45,6 +49,9 @@ function MainDisplay({
         {projects.map((item) => {
           if (item.displayToMain === true) {
             return item.taskArray.map((task) => {
+              const date = new Date(task.dueDate)
+              const formatDate = date.toString().slice(0, 10)
+              console.log(date)
               return (
                 <div className="task-card" key={task.id}>
                   <h2 className="card-title">
@@ -54,7 +61,7 @@ function MainDisplay({
                     </button>
                   </h2>
                   <div className="task-body">
-                    <p>Due: {task.dueDate}</p>
+                    <p>Due: {formatDate}</p>
                     <p>{task.priority}</p>
                   </div>
                 </div>
