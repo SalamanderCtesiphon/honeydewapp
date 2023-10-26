@@ -6,3 +6,8 @@ There is actually a lot going on with this project. It's initial purpose is to w
 with and explore Object Oriented Programming principals. To do this the data structure
 of the app is organized in way that requires the ability to manipulate state across 
 multiple components within the application.
+
+Third-party libraries:
+  -materialUI
+  -date-fns for date formatting
+  -uuid for unique id's
