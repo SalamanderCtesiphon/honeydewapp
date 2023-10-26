@@ -1,5 +1,6 @@
 import React from 'react'
 import AddProject from './AddProject'
+import ProjectCard from './ProjectCard'
 
 function Sidebar({
   projects,
@@ -26,14 +27,11 @@ function Sidebar({
           />
           {projects.map((item) => {
             return (
-              <div
+              <ProjectCard
+                item={item}
                 key={item.id}
-                className="list-item"
-                onClick={() => handleDisplay(item.id)}
-              >
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
+                handleDisplay={handleDisplay}
+              />
             )
           })}
         </main>
