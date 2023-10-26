@@ -54,7 +54,7 @@ function MainDisplay({
               return (
                 <div className="task-card" key={task.id}>
                   <h2 className="card-title">
-                    {task.taskTitle}{' '}
+                    <div className="card-title-sub">{task.taskTitle} </div>
                     <button onClick={() => handleTaskDelete(item.id, task.id)}>
                       Remove from List
                     </button>
