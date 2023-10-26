@@ -121,9 +121,12 @@ function App() {
   function handleTaskDelete(Iid, Tid) {
     projects.map((item) => {
       if (item.id === Iid) {
-        console.log(item.taskArray.filter((task) => task.id !== Tid))
+        const tempArr = item.taskArray.filter((task) => task.id !== Tid)
+        return tempArr
       }
+      return tempArr
     })
+    console.log(tempArr)
   }
 
   useEffect(() => {
