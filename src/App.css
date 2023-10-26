@@ -13,6 +13,7 @@ button {
   cursor: pointer;
   padding: 4px;
   margin: 0 4px;
+  font-weight: 600;
 }
 
 header {
@@ -137,7 +138,7 @@ img {
 }
 
 .btn-box {
-  width: 30%;
+  width: 32%;
   display: flex;
   justify-content: space-between;
 }
