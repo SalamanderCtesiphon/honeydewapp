@@ -1,7 +1,7 @@
 import React from 'react'
 import ConfirmDelete from './ConfirmDelete'
 import AddTask from './AddTask'
-import { compareAsc, format } from 'date-fns'
+import { format } from 'date-fns'
 
 format(new Date(2014, 1, 11), 'yyyy-MM-dd')
 //=> '2014-02-11'
