@@ -56,7 +56,7 @@ function MainDisplay({
                   <h2 className="card-title">
                     <div className="card-title-sub">{task.taskTitle} </div>
                     <button onClick={() => handleTaskDelete(item.id, task.id)}>
-                      Remove from List
+                      Delete
                     </button>
                   </h2>
                   <div className="task-body">

@@ -11,9 +11,22 @@
 
 button {
   cursor: pointer;
-  padding: 4px;
+  padding: 2px 5px;
   margin: 0 4px;
   font-weight: 600;
+  background-color: #000000;
+  border-radius: 4px;
+  border-color: rgba(188, 68, 188, 0.394);
+  color: gray;
+}
+
+p {
+  color: gray;
+}
+
+button:hover {
+  background-color: #333;
+  border-color: gray;
 }
 
 header {

@@ -31,7 +31,7 @@ export default function AddProject({
 
   return (
     <div>
-      <button onClick={handleOpen}>add task</button>
+      <button onClick={handleOpen}>Add Task</button>
       <Modal
         open={open}
         onClose={handleClose}
