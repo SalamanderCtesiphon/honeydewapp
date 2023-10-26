@@ -22,6 +22,7 @@ function MainDisplay({
   setTaskNotes,
   isDisplay,
   handleShowTaskDetails,
+  handleHideTaskDetails,
 }) {
   return (
     <>
@@ -67,6 +68,7 @@ function MainDisplay({
                   item={item}
                   isDisplay={isDisplay}
                   handleShowTaskDetails={handleShowTaskDetails}
+                  handleHideTaskDetails={handleHideTaskDetails}
                 />
               )
             })

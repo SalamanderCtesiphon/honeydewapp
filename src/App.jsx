@@ -142,12 +142,22 @@ function App() {
 
   function handleShowTaskDetails(id) {
     console.log(id)
-    /* projects.map((item) => {
+    projects.map((item) => {
       if (item.id === id) {
         item.isDisplay = true
       }
     })
-    setProjects([...projects]) */
+    setProjects([...projects])
+  }
+
+  function handleHideTaskDetails(id) {
+    console.log(id)
+    projects.map((item) => {
+      if (item.id === id) {
+        item.isDisplay = false
+      }
+    })
+    setProjects([...projects])
   }
 
   useEffect(() => {
@@ -182,6 +192,7 @@ function App() {
           setTaskNotes={setTaskNotes}
           isDisplay={isDisplay}
           handleShowTaskDetails={handleShowTaskDetails}
+          handleHideTaskDetails={handleHideTaskDetails}
         />
       </div>
       <Footer />

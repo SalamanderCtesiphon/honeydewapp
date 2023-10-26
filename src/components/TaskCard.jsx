@@ -5,15 +5,15 @@ function TaskCard({
   handleTaskDelete,
   formatDate,
   item,
-  isDisplay,
   handleShowTaskDetails,
+  handleHideTaskDetails,
 }) {
   return (
     <>
-      {isDisplay ? (
+      {item.isDisplay ? (
         <div
           className="task-card"
-          onClick={() => handleShowTaskDetails(task.id)}
+          onClick={() => handleHideTaskDetails(item.id)}
         >
           <h2 className="card-title">
             <div className="card-title-sub">{task.taskTitle} </div>
@@ -30,7 +30,7 @@ function TaskCard({
       ) : (
         <div
           className="task-card"
-          onClick={() => handleShowTaskDetails(task.id)}
+          onClick={() => handleShowTaskDetails(item.id)}
         >
           <h2 className="card-title">
             <div className="card-title-sub">{task.taskTitle} </div>
