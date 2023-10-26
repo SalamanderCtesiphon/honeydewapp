@@ -11,10 +11,7 @@ function TaskCard({
   return (
     <>
       {task.isDisplay === true ? (
-        <div
-          className="task-card"
-          onClick={() => handleHideTaskDetails(item.id, task.id)}
-        >
+        <div className="task-card">
           <h2 className="card-title">
             <div className="card-title-sub">{task.taskTitle} </div>
             <button onClick={() => handleTaskDelete(item.id, task.id)}>
@@ -24,7 +21,14 @@ function TaskCard({
           <div className="task-body">
             <p>Due: {formatDate}</p>
             <p>{task.priority}</p>
-            <p>{task.taskNotes}</p>
+          </div>
+          <p className="task-body">{task.taskNotes}</p>
+          <div className="btn-box">
+            <button>Edit Task</button>
+            <button onClick={() => handleHideTaskDetails(item.id, task.id)}>
+              {' '}
+              Hide Details
+            </button>
           </div>
         </div>
       ) : (

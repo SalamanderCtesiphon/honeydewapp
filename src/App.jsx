@@ -76,6 +76,7 @@ function App() {
   const [priority, setPriority] = useState('')
   const [taskNotes, setTaskNotes] = useState('')
   const [isDisplay, setIsDisply] = useState(false)
+  const [editing, setEditing] = useState(false)
 
   function handleFormSubmit(e) {
     e.preventDefault()
@@ -119,6 +120,7 @@ function App() {
       dueDate: dueDate,
       priority: priority,
       isDisplay: false,
+      editing: false,
     }
     projects.map((item) => {
       if (id === item.id) {
@@ -128,6 +130,8 @@ function App() {
     setProjects([...projects])
     setTaskTitle('')
     setDueDate('')
+    setTaskNotes('')
+    setEditing(false)
   }
 
   function handleTaskDelete(Iid, Tid) {
@@ -145,7 +149,6 @@ function App() {
       if (item.id === Iid) {
         item.taskArray.map((task) => {
           if (task.id === Tid) {
-            console.log('open')
             task.isDisplay = true
           }
         })
@@ -159,13 +162,16 @@ function App() {
       if (item.id === Iid) {
         item.taskArray.map((task) => {
           if (task.id === Tid) {
-            console.log('close')
             task.isDisplay = false
           }
         })
       }
     })
     setProjects([...projects])
+  }
+
+  function showEditingTask() {
+    console.log('hi')
   }
 
   useEffect(() => {
