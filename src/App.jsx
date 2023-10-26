@@ -128,16 +128,11 @@ function App() {
     projects.map((item) => {
       if (item.id === Iid) {
         const tempArr = item.taskArray.filter((task) => task.id !== Tid)
-        return tempArr
+        return (item.taskArray = tempArr)
       }
-      return tempArr
     })
-    console.log(tempArr)
+    setProjects([...projects])
   }
-
-  useEffect(() => {
-    console.log(projects)
-  }, [projects])
 
   return (
     <>
