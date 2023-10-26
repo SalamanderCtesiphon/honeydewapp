@@ -23,6 +23,14 @@ function MainDisplay({
   isDisplay,
   handleShowTaskDetails,
   handleHideTaskDetails,
+  editTaskFormSubmit,
+  setEditTaskTitle,
+  editDueDate,
+  setEditDueDate,
+  editPriority,
+  setEditPriority,
+  editTaskNotes,
+  setEditTaskNotes,
 }) {
   return (
     <>
@@ -69,6 +77,14 @@ function MainDisplay({
                   isDisplay={isDisplay}
                   handleShowTaskDetails={handleShowTaskDetails}
                   handleHideTaskDetails={handleHideTaskDetails}
+                  editTaskFormSubmit={editTaskFormSubmit}
+                  setEditTaskTitle={setEditTaskTitle}
+                  editDueDate={editDueDate}
+                  setEditDueDate={setEditDueDate}
+                  editPriority={editPriority}
+                  setEditPriority={setEditPriority}
+                  editTaskNotes={editTaskNotes}
+                  setEditTaskNotes={setEditTaskNotes}
                 />
               )
             })

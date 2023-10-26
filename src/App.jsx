@@ -77,6 +77,10 @@ function App() {
   const [taskNotes, setTaskNotes] = useState('')
   const [isDisplay, setIsDisply] = useState(false)
   const [editing, setEditing] = useState(false)
+  const [editTaskTitle, setEditTaskTitle] = useState('')
+  const [editDueDate, setEditDueDate] = useState('')
+  const [editPriority, setEditPriority] = useState('')
+  const [editTaskNotes, setEditTaskNotes] = useState('')
 
   function handleFormSubmit(e) {
     e.preventDefault()
@@ -170,8 +174,16 @@ function App() {
     setProjects([...projects])
   }
 
-  function showEditingTask() {
-    console.log('hi')
+  function editTaskFormSubmit(Iid, Tid) {
+    projects.map((item) => {
+      if (item.id === Iid) {
+        item.taskArray.map((task) => {
+          if (task.id === Tid) {
+          }
+        })
+      }
+    })
+    setProjects([...projects])
   }
 
   useEffect(() => {
@@ -207,6 +219,15 @@ function App() {
           isDisplay={isDisplay}
           handleShowTaskDetails={handleShowTaskDetails}
           handleHideTaskDetails={handleHideTaskDetails}
+          editTaskFormSubmit={editTaskFormSubmit}
+          editTaskTitle={editTaskTitle}
+          setEditTaskTitle={setEditTaskTitle}
+          editDueDate={editDueDate}
+          setEditDueDate={setEditDueDate}
+          editPriority={editPriority}
+          setEditPriority={setEditPriority}
+          editTaskNotes={editTaskNotes}
+          setEditTaskNotes={setEditTaskNotes}
         />
       </div>
       <Footer />

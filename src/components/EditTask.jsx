@@ -16,24 +16,27 @@ const style = {
 }
 
 export default function AddProject({
-  handleTaskFormSubmit,
-  taskTitle,
-  setTaskTitle,
-  dueDate,
-  setDueDate,
-  priority,
-  setPriority,
   item,
-  taskNotes,
-  setTaskNotes,
+  task,
+  editTaskFormSubmit,
+  setEditTaskTitle,
+  setEditDueDate,
+  setEditPriority,
+  setEditTaskNotes,
+  editTaskTitle,
+  editTaskNotes,
 }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
+  function openEdit() {
+    handleOpen()
+  }
+
   return (
     <div>
-      <button onClick={handleOpen}>Edit Task</button>
+      <button onClick={() => openEdit()}>Edit Task</button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -44,39 +47,39 @@ export default function AddProject({
           <form
             className="form"
             onSubmit={(e) => {
-              handleTaskFormSubmit(item.id), handleClose()
+              editTaskFormSubmit(item.id, task.id), handleClose()
             }}
           >
-            <p className="title">Add New Task</p>
+            <p className="title">Edit Task</p>
             <label>
               <input
                 className="input"
                 type="text"
-                id="taskTitle"
-                value={taskTitle}
-                onChange={(e) => setTaskTitle(e.target.value)}
+                id="editTaskTitle"
+                value={editTaskTitle}
+                onChange={(e) => setEditTaskTitle(e.target.value)}
                 required
               />
-              <span>Task Title</span>
+              <span>{task.taskTitle}</span>
             </label>
             <label>
               <textarea
                 className="input"
                 type="text"
                 id="taskTitle"
-                value={taskNotes}
-                onChange={(e) => setTaskNotes(e.target.value)}
+                value={editTaskNotes}
+                onChange={(e) => setEditTaskNotes(e.target.value)}
                 required
               />
-              <span>Notes</span>
+              <span>{task.taskNotes}</span>
             </label>
             <label>
               <input
                 className="input"
                 type="date"
                 id="description"
-                value={dueDate}
-                onChange={(e) => setDueDate(e.target.value)}
+                value={task.dueDate}
+                onChange={(e) => setEditDueDate(e.target.value)}
                 required
               />
               <span>Due Date</span>
@@ -86,8 +89,8 @@ export default function AddProject({
               <select
                 name="priority"
                 id="priority"
-                value={priority}
-                onChange={(e) => setPriority(e.target.value)}
+                value={task.priority}
+                onChange={(e) => setEditPriority(e.target.value)}
               >
                 <option value={'High Priority'}>High</option>
                 <option value={'Medium Priority'}>Medium</option>

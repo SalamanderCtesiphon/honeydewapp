@@ -8,6 +8,15 @@ function TaskCard({
   item,
   handleShowTaskDetails,
   handleHideTaskDetails,
+  editTaskFormSubmit,
+  setEditTaskTitle,
+  editTaskTitle,
+  editDueDate,
+  setEditDueDate,
+  editPriority,
+  setEditPriority,
+  editTaskNotes,
+  setEditTaskNotes,
 }) {
   return (
     <>
@@ -25,7 +34,19 @@ function TaskCard({
           </div>
           <p className="task-body">{task.taskNotes}</p>
           <div className="btn-box">
-            <EditTask />
+            <EditTask
+              item={item}
+              task={task}
+              editTaskFormSubmit={editTaskFormSubmit}
+              setEditTaskTitle={setEditTaskTitle}
+              editTaskTitle={editTaskTitle}
+              editDueDate={editDueDate}
+              setEditDueDate={setEditDueDate}
+              editPriority={editPriority}
+              setEditPriority={setEditPriority}
+              editTaskNotes={editTaskNotes}
+              setEditTaskNotes={setEditTaskNotes}
+            />
             <button onClick={() => handleHideTaskDetails(item.id, task.id)}>
               {' '}
               Hide Details
