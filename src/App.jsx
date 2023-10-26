@@ -42,19 +42,25 @@ function App() {
       taskArray: [
         {
           id: '201',
-          taskTitle: 'Take out the trash',
+          taskTitle: 'Mow the Grass',
           dueDate: 'Today',
           priority: 'Low Priority',
         },
         {
           id: '202',
-          taskTitle: 'Wash clothes',
+          taskTitle: ' Do the dishes',
           dueDate: 'Today',
           priority: 'Low Priority',
         },
         {
           id: '203',
-          taskTitle: 'Do the dishes',
+          taskTitle: 'Wash clothes',
+          dueDate: 'Today',
+          priority: 'Low Priority',
+        },
+        {
+          id: '204',
+          taskTitle: 'Change the Oil',
           dueDate: 'Today',
           priority: 'Low Priority',
         },
