@@ -12,6 +12,7 @@ function MainDisplay({
   setDueDate,
   priority,
   setPriority,
+  handleTaskDelete,
 }) {
   return (
     <>
@@ -47,7 +48,10 @@ function MainDisplay({
               return (
                 <div className="task-card" key={task.id}>
                   <h2 className="card-title">
-                    {task.taskTitle} <button>Remove from List</button>
+                    {task.taskTitle}{' '}
+                    <button onClick={() => handleTaskDelete(item.id, task.id)}>
+                      Remove from List
+                    </button>
                   </h2>
                   <div className="task-body">
                     <p>Due: {task.dueDate}</p>

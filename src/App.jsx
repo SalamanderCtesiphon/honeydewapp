@@ -118,6 +118,14 @@ function App() {
     setDueDate('')
   }
 
+  function handleTaskDelete(Iid, Tid) {
+    projects.map((item) => {
+      if (item.id === Iid) {
+        console.log(item.taskArray.filter((task) => task.id !== Tid))
+      }
+    })
+  }
+
   useEffect(() => {
     console.log(projects)
   }, [projects])
@@ -145,6 +153,7 @@ function App() {
           setPriority={setPriority}
           taskTitle={taskTitle}
           setTaskTitle={setTaskTitle}
+          handleTaskDelete={handleTaskDelete}
         />
       </div>
       <Footer />
