@@ -196,6 +196,7 @@ function App() {
   }
 
   async function updateDB() {
+    // NEED TO ERASE THE CURRENT DB AND UPDATED IT COMPLETELY WITH THE NEW CURRENT REACT STATE
     try {
       const docRef = await addDoc(collection(db, 'projects'), {
         projects: projects,
