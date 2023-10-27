@@ -226,13 +226,13 @@ function App() {
     })
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     updateDB()
   }, [projects])
 
   useEffect(() => {
     fetchDb().then(setProjects([...projects]))
-  }, [])
+  }, []) */
 
   return (
     <>
