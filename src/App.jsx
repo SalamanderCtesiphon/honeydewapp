@@ -5,6 +5,8 @@ import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import MainDisplay from './components/MainDisplay'
 import uuid from 'react-uuid'
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from './firebase'
 
 function App() {
   const [projects, setProjects] = useState(
@@ -195,8 +197,18 @@ function App() {
     setEditTaskNotes('')
   }
 
-  useEffect(() => {
-    localStorage.setItem('projects', JSON.stringify(projects))
+  useEffect(async () => {
+    /* localStorage.setItem('projects', JSON.stringify(projects)) */
+    e.preventDefault()
+
+    try {
+      const docRef = await addDoc(collection(db, 'projects'), {
+        projects: projects,
+      })
+      console.log('Document written with ID: ', docRef.id)
+    } catch (e) {
+      console.error('Error adding document: ', e)
+    }
   }, [projects])
 
   return (
