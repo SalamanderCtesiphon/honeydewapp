@@ -196,8 +196,7 @@ function App() {
     setEditTaskNotes('')
   }
 
-  async function updateDB(e) {
-    e.preventDefault()
+  async function updateDB() {
     // NEED TO ERASE THE CURRENT DB AND UPDATED IT COMPLETELY WITH THE NEW CURRENT REACT STATE
     try {
       const docRef = await addDoc(collection(db, 'topLevel'), {
@@ -227,9 +226,13 @@ function App() {
     })
   }
 
-  /* useEffect(() => {
-    fetchDb()
-  }, [projects]) */
+  useEffect(() => {
+    updateDB()
+  }, [projects])
+
+  useEffect(() => {
+    fetchDb().then(setProjects([...projects]))
+  }, [])
 
   return (
     <>
