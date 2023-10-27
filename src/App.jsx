@@ -68,6 +68,7 @@ function App() {
         },
       ],
     },
+    ,
   ])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -83,7 +84,7 @@ function App() {
   const [editTaskNotes, setEditTaskNotes] = useState('')
   const [docID, setDocID] = useState('')
 
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault()
     const newProject = {
       id: uuid(),
@@ -92,6 +93,17 @@ function App() {
       displayToMain: false,
       taskArray: [],
     }
+
+    try {
+      const docRef = await addDoc(collection(db, 'topLevel'), {
+        newProject,
+      })
+      setDocID(docRef.id)
+      console.log('Document written with ID: ', docRef.id)
+    } catch (e) {
+      console.error('Error adding document: ', e)
+    }
+
     setProjects([...projects, newProject])
     setTitle('')
     setDescription('')
