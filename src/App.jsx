@@ -213,11 +213,11 @@ function App() {
         ...doc.data(),
         id: doc.id,
       }))
-
-      const destrucOne = newData[0]
-      const destructTwo = destrucOne.projects
-      setProjects([...destructTwo])
     })
+    console.log(newData)
+    const destrucOne = newData[0]
+    const destructTwo = destrucOne.projects
+    setProjects([...destructTwo])
   }
 
   /* useEffect(() => {
