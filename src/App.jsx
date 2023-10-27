@@ -198,7 +198,7 @@ function App() {
   async function updateDB() {
     // NEED TO ERASE THE CURRENT DB AND UPDATED IT COMPLETELY WITH THE NEW CURRENT REACT STATE
     try {
-      const docRef = await addDoc(collection(db, 'projects'), {
+      const docRef = await addDoc(collection(db, 'topLevel'), {
         projects: projects,
       })
       console.log('Document written with ID: ', docRef.id)
