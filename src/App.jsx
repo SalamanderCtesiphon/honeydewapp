@@ -81,6 +81,7 @@ function App() {
   const [editDueDate, setEditDueDate] = useState('')
   const [editPriority, setEditPriority] = useState('')
   const [editTaskNotes, setEditTaskNotes] = useState('')
+  const [docID, setDocID] = useState('')
 
   function handleFormSubmit(e) {
     e.preventDefault()
@@ -202,6 +203,7 @@ function App() {
       const docRef = await addDoc(collection(db, 'topLevel'), {
         projects,
       })
+      setDocID(docRef.id)
       console.log('Document written with ID: ', docRef.id)
     } catch (e) {
       console.error('Error adding document: ', e)
@@ -214,12 +216,14 @@ function App() {
         ...doc.data(),
         id: doc.id,
       }))
-      console.log(newData)
-      console.log(newData[0].id)
+      newData.map((item) => {
+        if (item.id === docID) {
+          console.log(item)
+          setProjects([...item.projects])
+        }
+      })
 
-      const destrucOne = newData[0]
-      const destructTwo = destrucOne.projects
-      setProjects([...destructTwo])
+      console.log(projects)
     })
   }
 
