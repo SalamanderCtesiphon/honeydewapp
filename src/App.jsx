@@ -195,11 +195,12 @@ function App() {
     setEditTaskNotes('')
   }
 
-  async function updateDB() {
+  async function updateDB(e) {
+    e.preventDefault()
     // NEED TO ERASE THE CURRENT DB AND UPDATED IT COMPLETELY WITH THE NEW CURRENT REACT STATE
     try {
       const docRef = await addDoc(collection(db, 'topLevel'), {
-        projects: projects,
+        projects,
       })
       console.log('Document written with ID: ', docRef.id)
     } catch (e) {
@@ -208,16 +209,18 @@ function App() {
   }
 
   const fetchDb = async () => {
-    await getDocs(collection(db, 'projects')).then((querySnapshot) => {
+    await getDocs(collection(db, 'topLevel')).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }))
+      console.log(newData)
+      console.log(newData[0].id)
+
+      const destrucOne = newData[0]
+      const destructTwo = destrucOne.projects
+      setProjects([...destructTwo])
     })
-    console.log(newData)
-    const destrucOne = newData[0]
-    const destructTwo = destrucOne.projects
-    setProjects([...destructTwo])
   }
 
   /* useEffect(() => {
@@ -226,7 +229,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => updateDB()}>sync</button>
+      <button onClick={(e) => updateDB(e)}>sync</button>
       <button onClick={() => fetchDb()}>fetchDb</button>
       <Header />
       <div className="main">
