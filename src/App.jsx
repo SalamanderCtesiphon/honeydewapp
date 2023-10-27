@@ -9,8 +9,7 @@ import { collection, addDoc } from 'firebase/firestore'
 import { db } from './firebase'
 
 function App() {
-  const [projects, setProjects] = useState(
-    /* [
+  const [projects, setProjects] = useState([
     {
       id: '1',
       title: 'Project 1',
@@ -69,8 +68,7 @@ function App() {
         },
       ],
     },
-  ] */ JSON.parse(localStorage.getItem('projects'))
-  )
+  ])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -197,10 +195,7 @@ function App() {
     setEditTaskNotes('')
   }
 
-  useEffect(async () => {
-    /* localStorage.setItem('projects', JSON.stringify(projects)) */
-    e.preventDefault()
-
+  async function updateDB() {
     try {
       const docRef = await addDoc(collection(db, 'projects'), {
         projects: projects,
@@ -209,6 +204,10 @@ function App() {
     } catch (e) {
       console.error('Error adding document: ', e)
     }
+  }
+
+  useEffect(() => {
+    updateDB()
   }, [projects])
 
   return (
