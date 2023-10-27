@@ -219,9 +219,9 @@ function App() {
     })
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetchDb()
-  }, [])
+  }, [projects]) */
 
   return (
     <>
