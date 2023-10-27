@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import MainDisplay from './components/MainDisplay'
 import uuid from 'react-uuid'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from './firebase'
 
 function App() {
@@ -206,12 +206,27 @@ function App() {
     }
   }
 
+  const fetchDb = async () => {
+    await getDocs(collection(db, 'projects')).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }))
+
+      const destrucOne = newData[0]
+      const destructTwo = destrucOne.projects
+      setProjects([...destructTwo])
+    })
+  }
+
   useEffect(() => {
-    updateDB()
-  }, [projects])
+    fetchDb()
+  }, [])
 
   return (
     <>
+      <button onClick={() => updateDB()}>sync</button>
+      <button onClick={() => fetchDb()}>fetchDb</button>
       <Header />
       <div className="main">
         <Sidebar
