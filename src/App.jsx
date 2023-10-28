@@ -9,7 +9,66 @@ import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from './firebase'
 
 function App() {
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState([
+    {
+      id: '1',
+      title: 'Project 1',
+      description: 'A placeholder project',
+      displayToMain: true,
+      taskArray: [
+        {
+          id: '101',
+          taskTitle: 'Take out the trash',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+        {
+          id: '102',
+          taskTitle: 'Wash clothes',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+        {
+          id: '103',
+          taskTitle: 'Do the dishes',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+      ],
+    },
+    {
+      id: '2',
+      title: 'Project 2',
+      description: 'Another placeholder project',
+      displayToMain: false,
+      taskArray: [
+        {
+          id: '201',
+          taskTitle: 'Mow the Grass',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+        {
+          id: '202',
+          taskTitle: ' Do the dishes',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+        {
+          id: '203',
+          taskTitle: 'Wash clothes',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+        {
+          id: '204',
+          taskTitle: 'Change the Oil',
+          dueDate: '2023-10-31',
+          priority: 'Low Priority',
+        },
+      ],
+    },
+  ])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -32,16 +91,6 @@ function App() {
       description: description,
       displayToMain: false,
       taskArray: [],
-    }
-
-    try {
-      const docRef = await addDoc(collection(db, 'topLevel'), {
-        newProject,
-      })
-      setDocID(docRef.id)
-      console.log('Document written with ID: ', docRef.id)
-    } catch (e) {
-      console.error('Error adding document: ', e)
     }
 
     setProjects([...projects, newProject])
@@ -167,30 +216,38 @@ function App() {
         ...doc.data(),
         id: doc.id,
       }))
-      console.log(newData[0].newProject)
-      let tempArray = []
       newData.map((item) => {
-        const temp = item.newProject
-        tempArray.push(temp)
+        if (item.id === docID) {
+          console.log(item)
+          setProjects([...item.projects])
+        }
       })
-      console.log(tempArray)
-      setProjects([...tempArray])
+
+      console.log(projects)
     })
   }
+
+  useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(projects))
+  }, [projects])
+
+  useEffect(() => {
+    const projects = JSON.parse(localStorage.getItem('projects'))
+    if (projects) {
+      setProjects([...projects])
+    }
+  }, [])
 
   /* useEffect(() => {
     updateDB()
   }, [projects])
-  */
 
   useEffect(() => {
-    fetchDb()
-  }, [])
+    fetchDb().then(setProjects([...projects]))
+  }, []) */
 
   return (
     <>
-      <button onClick={(e) => updateDB(e)}>sync</button>
-      <button onClick={() => fetchDb()}>fetchDb</button>
       <Header />
       <div className="main">
         <Sidebar
