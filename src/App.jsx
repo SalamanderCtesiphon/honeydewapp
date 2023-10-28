@@ -9,67 +9,7 @@ import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from './firebase'
 
 function App() {
-  const [projects, setProjects] = useState([
-    {
-      id: '1',
-      title: 'Project 1',
-      description: 'A placeholder project',
-      displayToMain: true,
-      taskArray: [
-        {
-          id: '101',
-          taskTitle: 'Take out the trash',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-        {
-          id: '102',
-          taskTitle: 'Wash clothes',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-        {
-          id: '103',
-          taskTitle: 'Do the dishes',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-      ],
-    },
-    {
-      id: '2',
-      title: 'Project 2',
-      description: 'Another placeholder project',
-      displayToMain: false,
-      taskArray: [
-        {
-          id: '201',
-          taskTitle: 'Mow the Grass',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-        {
-          id: '202',
-          taskTitle: ' Do the dishes',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-        {
-          id: '203',
-          taskTitle: 'Wash clothes',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-        {
-          id: '204',
-          taskTitle: 'Change the Oil',
-          dueDate: '2023-10-31',
-          priority: 'Low Priority',
-        },
-      ],
-    },
-    ,
-  ])
+  const [projects, setProjects] = useState([])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -227,14 +167,14 @@ function App() {
         ...doc.data(),
         id: doc.id,
       }))
+      console.log(newData[0].newProject)
+      let tempArray = []
       newData.map((item) => {
-        if (item.id === docID) {
-          console.log(item)
-          setProjects([...item.projects])
-        }
+        const temp = item.newProject
+        tempArray.push(temp)
       })
-
-      console.log(projects)
+      console.log(tempArray)
+      setProjects([...tempArray])
     })
   }
 
