@@ -1,4 +1,4 @@
-# React + Vite
+a small alteration# React + Vite
 
 This is a full-stack React Application with a firebase back-end.
 The goal of the assignment was to gain a mastery over OOP (Object
